@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.user_name }}!</h1>
+        {% for contact in contact_list %}
+        <div>
+            <a href ="{{url_for('get_phone', uid=contact.id.uid)}}" <p>{{ contact.id.name}}</p></a>
+        </div>
+        {% endfor %}
+        
+        {% if from_get_phone %}
+        <table id="customers" style="width=100%">
+            {% for contact in each_contact_list %}
+            <th>{{ contact.id.name }}'s Details</th>
+            <th>{{ contact.id.name }}'s Phone</th>
+            <th>{{ contact.id.name }}'s Address</th>
+            <tr>
+                <td>{{ contact.id.name}}</td>
+                <td>{{ contact.id.phone}}</td>
+                <td>{{ contact.id.address}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+{% endblock %}

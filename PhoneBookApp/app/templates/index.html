@@ -1,0 +1,35 @@
+<html>
+    <head>
+    {% if title %}
+    
+        <title>Welcome To PhoneBookApp {{ title }}</title>
+    {% else %}
+        <title>Welcome to PhoneBookApp
+    {% endif %}
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        }
+</style>
+    </head>
+    <body>
+        <h1>Hello,! {{ user.user_name }}! Y</h1>
+        <h1><div><a href="/index_inherit">Home Page</a></div></h1>
+        <br><br>
+        <h1>Below is your favorite Contact list</h1>
+        <table style="width=100%">
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th> 
+            <th>Address</th>
+        </tr>
+        {% for contact in contact_list %}
+        <tr>
+            <td>{{ contact.id.name}}</td>
+            <td>{{ contact.id.phone}}</td>
+            <td>{{ contact.id.address}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>
